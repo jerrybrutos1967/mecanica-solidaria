@@ -1,0 +1,343 @@
+/* SISTEMA DE DESIGN */
+:root {
+    --cor-texto: #333;
+    --cor-fundo: #f5f5f5;
+    --cor-principal: #007bff;
+    --cor-borda: #ccc;
+    --cor-sucesso: #28a745;
+    --cor-erro: #dc3545;
+    --cor-branco: #fff;
+
+    --fonte-pequena: 0.875rem;
+    --fonte-normal: 1rem;
+    --fonte-grande: 1.5rem;
+    --fonte-titulo: 2rem;
+
+    --espaco-pequeno: 8px;
+    --espaco-medio: 16px;
+    --espaco-grande: 24px;
+
+    --raio-pequeno: 5px;
+    --raio-medio: 8px;
+    --raio-grande: 10px;
+}
+
+/* MENU DE NAVEGAÇÃO */
+nav {
+    width: 100%;
+    text-align: center;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+.menu a {
+    text-decoration: none;
+    padding: var(--espaco-pequeno) var(--espaco-medio);
+    transition: 0.3s;
+}
+.menu a:hover {
+    opacity: 0.7;
+}
+
+.menu-btn {
+    display: none;
+    padding: var(--espaco-pequeno) var(--espaco-medio);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-pequeno);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+/* CABEÇALHO */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* LOGO */
+.logo {
+    width: 120px;
+    height: auto;
+}
+
+
+/* ÁREA DE CONTEÚDO */
+.conteudo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+
+/* MENU PARA CELULAR */
+@media (max-width: 768px) {
+
+    .menu-btn {
+        display: block;
+    }
+	
+	.menu-btn:hover {
+    opacity: 0.7;
+	}
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+    }
+	.menu.aberto {
+    display: flex;
+	}
+}
+
+
+
+/* RODAPÉ */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+
+/* DROPDOWN */
+.dropdown {
+    position: relative;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    background: white;
+    min-width: 150px;
+}
+
+.dropdown:hover .submenu {
+    display: block;
+}
+
+.submenu li {
+    margin: 5px 0;
+}
+
+.submenu a {
+    display: block;
+}
+
+/* CARDS */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--espaco-grande);
+    margin: 30px 0;
+}
+
+.card {
+    grid-column: span 4;
+    padding: var(--espaco-medio);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-grande);
+    text-align: center;
+    transition: 0.3s;
+}
+/* TABLET */
+@media (max-width: 900px) {
+
+    .card {
+        grid-column: span 6;
+    }
+
+}
+
+/* CELULAR */
+@media (max-width: 600px) {
+
+    .card {
+        grid-column: span 12;
+    }
+
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px;
+}
+
+/* FORMULÁRIO */
+
+form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+fieldset {
+    margin-bottom: var(--espaco-medio);
+    padding: var(--espaco-medio);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-medio);
+}
+
+legend {
+    font-weight: bold;
+}
+
+input,
+textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: var(--espaco-pequeno);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-pequeno);
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-width: 2px;
+}
+
+input:valid,
+textarea:valid {
+    border-style: solid;
+}
+
+input:invalid,
+textarea:invalid {
+    border-style: dashed;
+}
+
+/* BOTÃO DO FORMULÁRIO */
+
+button[type="submit"] {
+    padding: var(--espaco-pequeno) var(--espaco-medio);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-pequeno);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button[type="submit"]:hover {
+    opacity: 0.7;
+}
+
+/* TOAST - MENSAGEM DE SUCESSO */
+
+.toast {
+    position: fixed;
+    bottom: var(--espaco-medio);
+    right: var(--espaco-medio);
+    padding: var(--espaco-medio);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-medio);
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.toast.mostrar {
+    opacity: 1;
+}
+
+/* FEEDBACK DO FORMULÁRIO */
+
+input:invalid:focus,
+textarea:invalid:focus {
+    border-width: 2px;
+}
+
+ /* ALERTA */
+
+.alerta {
+    margin: var(--espaco-medio) auto;
+    padding: var(--espaco-medio);
+    border: 1px solid var(--cor-erro);
+    border-radius: var(--raio-medio);
+    text-align: center;
+}
+
+
+	/* BADGE */
+
+.badge {
+    display: inline-block;
+    padding: var(--espaco-pequeno) var(--espaco-medio);
+    border: 1px solid var(--cor-erro);
+    border-radius: 15px;
+    font-size: var(--fonte-pequena);
+    font-weight: bold;
+    background-color: var(--cor-erro);
+    color: var(--cor-branco);
+}
+
+/* MODAL */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.aberto {
+    display: flex;
+}
+
+.modal-conteudo {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    max-width: 500px;
+    text-align: center;
+}
+
+/* FORMULÁRIO RESPONSIVO */
+@media (max-width: 600px) {
+
+    form {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    fieldset {
+        padding: var(--espaco-pequeno);
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        max-width: 100%;
+    }
+
+}
